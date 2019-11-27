@@ -9,7 +9,9 @@
         "isDirectory": true,
         "children": [
           "8ff048b6-3cf0-45cd-9931-cfc08a268577",
-          "3270fb39-b928-4bdc-83b7-429dbe7ad17a"
+          "3270fb39-b928-4bdc-83b7-429dbe7ad17a",
+          "53814b1c-5628-47a4-85b9-babb0acc2068",
+          "38af2f90-6791-4aaf-90d7-04b11c8fb28b"
         ],
         "isRemovable": false,
         "filePath": "test"
@@ -58,7 +60,7 @@
         "children": [],
         "isRemovable": false,
         "filePath": "main.py",
-        "code": "# This file is used to register all your cloud functions in GCP.\n# DO NOT EDIT/DELETE THIS, UNLESS YOU KNOW WHAT YOU ARE DOING.\n\n"
+        "code": "# This file is used to register all your cloud functions in GCP.\n# DO NOT EDIT/DELETE THIS, UNLESS YOU KNOW WHAT YOU ARE DOING.\n\nfrom test.test import handler as testtest"
       },
       "3270fb39-b928-4bdc-83b7-429dbe7ad17a": {
         "id": "3270fb39-b928-4bdc-83b7-429dbe7ad17a",
@@ -70,13 +72,48 @@
         "isRemovable": true,
         "filePath": "test/Authorizer.js",
         "code": "const google = require(\"googleapis\").google;\n\ngoogle.options({auth: new google.auth.Compute()});"
+      },
+      "53814b1c-5628-47a4-85b9-babb0acc2068": {
+        "id": "53814b1c-5628-47a4-85b9-babb0acc2068",
+        "parent": "4163be31-eb0d-45a2-bed6-d7a868db8fd3",
+        "name": "test.py",
+        "type": "PYTHON_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "test/test.py",
+        "code": "def handler(request):\n    \n    return \"Successfully executed\"\n",
+        "config": {
+          "runtime": "python37",
+          "timeout": 60,
+          "memory": 128,
+          "triggerType": 0
+        },
+        "triggers": [
+          {
+            "resourceName": "http-trigger",
+            "config": {}
+          }
+        ]
+      },
+      "38af2f90-6791-4aaf-90d7-04b11c8fb28b": {
+        "id": "38af2f90-6791-4aaf-90d7-04b11c8fb28b",
+        "parent": "4163be31-eb0d-45a2-bed6-d7a868db8fd3",
+        "name": "__init__.py",
+        "type": "PYTHON_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "test/__init__.py",
+        "code": ""
       }
     },
     "rootNode": "4163be31-eb0d-45a2-bed6-d7a868db8fd3",
     "openFiles": [
-      "8ff048b6-3cf0-45cd-9931-cfc08a268577"
+      "8ff048b6-3cf0-45cd-9931-cfc08a268577",
+      "53814b1c-5628-47a4-85b9-babb0acc2068"
     ],
-    "currentFileId": "8ff048b6-3cf0-45cd-9931-cfc08a268577",
+    "currentFileId": "53814b1c-5628-47a4-85b9-babb0acc2068",
     "resources": {
       "http-trigger": {
         "name": "http-trigger",
@@ -106,6 +143,14 @@
         "shouldPersist": false,
         "displayOnly": false,
         "editable": false
+      },
+      {
+        "lambdaId": "53814b1c-5628-47a4-85b9-babb0acc2068",
+        "varKey": "PYTHONPATH",
+        "varValue": "/var/runtime:/var/task/test",
+        "shouldPersist": true,
+        "displayOnly": false,
+        "editable": true
       }
     ],
     "packageJSON": {
@@ -129,7 +174,7 @@
     "platformRegions": {
       "AWS": "us-east-1"
     },
-    "lastSave": 1574759580665
+    "lastSave": 1574835377955
   },
   "VCS_STATE": {
     "provider": "GitHub",
